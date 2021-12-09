@@ -51,3 +51,49 @@ A simple url shortner written in python using flask framework.
     gunicorn wsgi:app --bind 0.0.0.0
     ```
     > `Note` : --bind 0.0.0.0 can be ignored if access from another device on local network is not required.
+
+## Deployed APP
+check out deployed [AnonUS APP](https://anonus.herokuapp.com)
+
+## Create new link
+   To create a new short link send POST request to the running app `http://app-name.herokuapp.com/new_link`, in json format
+   
+    ```json
+    {
+        "link":"https://domain"
+    }
+    ```
+   View [test script](https://github.com/dmdhrumilmistry/AnonUS/blob/main/test_scripts/create_new_link.py)
+    
+- Response:
+    - Status Code:`200`
+        ```json
+        {
+            "shortened_url":"shortened_url_link"
+        }
+        ```
+    - Status Code:`400`
+        ```json
+        {
+            "Error":"Invalid Data"
+        }
+        ```
+        when json data cannot be extracted or error occurs.
+        
+        *OR* 
+        
+        ```json
+        {
+            "Error":"Invalid Request"
+        }
+        ```
+        when request method is not post.
+
+## Visiting Short URL
+- If short url is valid then redirected to destined page with status code `301`
+- if url not found then returns
+    ```json
+    {
+        "URL":"NOT FOUND"
+    }
+    ```
