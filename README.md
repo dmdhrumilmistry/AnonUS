@@ -57,13 +57,12 @@ check out deployed [AnonUS APP](https://anonus.herokuapp.com)
 
 ## Create new link
    To create a new short link send POST request to the running app `http://app-name.herokuapp.com/new_link`, in json format
-   
-    ```json
-    {
-        "link":"https://domain"
-    }
-    ```
-   View [test script](https://github.com/dmdhrumilmistry/AnonUS/blob/main/test_scripts/create_new_link.py)
+   ```json
+   {
+       "link":"https://domain"
+   }
+   ```
+   View [create new link](https://github.com/dmdhrumilmistry/AnonUS/blob/main/test_scripts/create_new_link.py) test script for example.
     
 - Response:
     - Status Code:`200`
